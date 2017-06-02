@@ -91,19 +91,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
 
-                    }
-                }});
+                        }
+                    }});
     }
 
     @Override
     public void onClick(View view) {
         if(view == buttonSignIn);
         userLogin();
-  //  }
+        //  }
 
         if(view == textViewSignUp){
-        finish();
-        startActivity(new Intent (this, MainActivity.class));
+            finish();
+            startActivity(new Intent (this, MainActivity.class));
 
         }
     }

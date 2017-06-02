@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             finish();
             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
 
-    }
+        }
         editTextEmail = (EditText)findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
@@ -60,11 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view == buttonRegister){
             registerUser();
         }
-            if(view == textViewSignin){
-                //Will open login activity here
-                startActivity(new Intent(this, LoginActivity.class));
-            }
+        if(view == textViewSignin){
+            //Will open login activity here
+            startActivity(new Intent(this, LoginActivity.class));
         }
+    }
 
     private void registerUser(){
         String email = editTextEmail.getText().toString().trim();

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private Button buttonSave;
     Button buttonAddLocation = null;
     LinearLayout myLayout = null;
+    private LinearLayout scrollView;
 
 
 
@@ -52,7 +54,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         editTextName = (EditText) findViewById(R.id.editTextName);
         buttonSave = (Button) findViewById(R.id.buttonSave);
         buttonAddLocation = (Button) findViewById(R.id.buttonAddLocation);
-        myLayout = (LinearLayout) findViewById(R.id.myLayout);
+        //myLayout = (LinearLayout) findViewById(R.id.myLayout);
+        scrollView = (LinearLayout) findViewById(R.id.scrollview);
 
         buttonAddLocation.setOnClickListener(new View.OnClickListener() {
             int i = 0;
@@ -60,24 +63,26 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             public void onClick(View v) {
                 Button secondBtn = new Button(ProfileActivity.this);
 
-                myLayout = (LinearLayout) findViewById(R.id.myLayout);
+                scrollView = (LinearLayout) findViewById(R.id.scrollview);
+
                 LinearLayout.LayoutParams myFunnyParams = new LinearLayout.LayoutParams(
 
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                 );
 
-                secondBtn.setText("Ben "+(++i)+". binayım!");
+
+                secondBtn.setText(+(++i)+  ".Bina");
                 secondBtn.setId(i);
 
-                myLayout.addView(secondBtn,myFunnyParams);
+                scrollView.addView(secondBtn,myFunnyParams);
             }
         });
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         textViewUserEmail=(TextView) findViewById(R.id.textViewUserEmail);
-        textViewUserEmail.setText("welcome"+user.getEmail());
+        textViewUserEmail.setText("welcome    "+user.getEmail());
         buttonLogout=(Button)findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
         buttonSave.setOnClickListener(this);
